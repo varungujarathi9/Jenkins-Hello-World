@@ -114,4 +114,4 @@ Now we are ready to integrate any GitHub repository with Jenkins
 
 3. Choose `Freestyle project`
 
-4. In the `Source Code Management` tab 
+4. In the `Source Code Management` tab enter GitHub repository URL and save
