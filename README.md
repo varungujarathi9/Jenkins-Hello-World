@@ -12,7 +12,7 @@
 
 You should know Docker, basic CI-CD concept & basics of what Jenkins is used for
 
-You should have Linux(Debian) OS like Ubuntu, Java (openJDK) & Docker CE installed
+You should have Linux(Debian) OS like Ubuntu, Java (openJDK 11) & Docker CE installed
 
 ## Description  
 
@@ -33,8 +33,7 @@ ___
    You must get an repose printed as `OK`
 
 2. Now add the Debian package to your `sources.list`  
-    `sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
-    /etc/apt/sources.list.d/jenkins.list'`
+    `sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'`
 
 3. Now, `update` system  
    `sudo apt update`
@@ -93,7 +92,17 @@ Now, Jenkins is installed and configured for system
 5. Now, go to `Configure System` in `Manage Jenkins`
 
 6. Scroll down to `Git plugin`
+
    a. Add your GitHub username & email address
+
+7. Now go to your GitHub repository, go to `Settings`, go to `Webhooks`, click on `Add Webhook`
+
+8. For the payload URL, provide your Jenkins URL and the GitHub webhook path at the end of the URL - `https://<JENKINS_URL>/github-webhook/.`
+
+9. `Content type` should be JSON
+
+10. In `Which events would you like to trigger this webhook?` select `Just the push event.`
+
 
 Now we are ready to integrate any GitHub repository with Jenkins
 
