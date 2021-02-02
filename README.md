@@ -103,7 +103,6 @@ Now, Jenkins is installed and configured for system
 
 10. In `Which events would you like to trigger this webhook?` select `Just the push event.`
 
-
 Now we are ready to integrate any GitHub repository with Jenkins
 
 ### Creating Pipeline
