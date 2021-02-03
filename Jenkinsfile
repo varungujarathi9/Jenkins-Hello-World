@@ -5,7 +5,8 @@ pipeline {
         // name of the image without tag
         dockerRepo = "varungujarathi9/jenkins-hello-world"
         dockerCredentials = 'docker_hub'
-        dockerImage = ""
+        dockerImageVersioned = ""
+        dockerImageLatest = ""
     }
 
     agent any
@@ -27,7 +28,8 @@ pipeline {
         stage("Building docker image"){
             steps{
                 script{
-                    dockerImage = docker.build dockerRepo + ":$BUILD_NUMBER"
+                    dockerImageVersioned = docker.build dockerRepo + ":$BUILD_NUMBER"
+                    dockerImageLatest = docker.build dockerRepo + ":latest"
                 }
             }
         }
@@ -36,7 +38,8 @@ pipeline {
                 script{
                     // if you want to use custom registry, use the first argument, which is blank in this case
                     docker.withRegistry( '', dockerCredentials){
-                        dockerImage.push()
+                        dockerImageVersioned.push()
+                        dockerImageLatest.push()
                     }
                 }
             }
