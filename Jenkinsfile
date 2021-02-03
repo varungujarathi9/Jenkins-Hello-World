@@ -2,10 +2,14 @@
 properties([pipelineTriggers([githubPush()])])
 
 pipeline {
-    /* specify nodes for executing */
-    agent {
-        label 'github-ci'
+    environment {
+        // name of the image without tag
+        dockerRepo: "varungujarathi9/jenkins-hello-world"
+        dockerCredentials: credentials("docker_hub")
+        dockerImage = ""
     }
+
+    agent any
 
     stages {
         /* checkout repo */
@@ -21,9 +25,25 @@ pipeline {
                 ])
             }
         }
-         stage('Do the deployment') {
+        stage("Building docker image"){
+            steps{
+                script{
+                    dockerImage = docker.build dockerRepo + ":$BUILD_NUMBER"
+                }
+            }
+        }
+        stage("Pushing image to registry"){
+            steps{
+                script{
+                    // if you want to use custom registry, use the first argument, which is blank in this case
+                    docker.withRegistry('', dockerCredentials)
+                    dockerImage.push()
+                }
+            }
+        }
+        stage('Cleaning up') {
             steps {
-                echo ">> Run deploy applications "
+                sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }
     }

@@ -115,5 +115,23 @@ Now we are ready to integrate any GitHub repository with Jenkins
 
 4. In the `Source Code Management` tab, select `Git` enter GitHub repository URL (not the URL for cloning) and save
 
+5. Now copy [Jenkinsfile](Jenkinsfile)
+
+6. Add Docker credentials to Jenkins host
+
+   a. On the top right of home page, click on dropdown next to the username
+
+   b. Select `Credentials`
+
+   c. Go to `System` OR Click on `Global` from any one pre-existing credentials
+
+   d. Click on `Add Credentials`
+
+   e. Keep scope `Global`
+
+   f. Enter Docker Hub username & password and set some ID in ID field
+
+7. Now in the `Jenkinsfile` in the `environment` set the ID inside credentials()
+
 The pipeline is now created, push code to GitHub to see the pipeline run
 
