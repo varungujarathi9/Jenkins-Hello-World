@@ -13,16 +13,9 @@ pipeline {
 
     stages {
         /* checkout repo */
-        stage('Checkout SCM') {
+        stage('Cloning our Git') {
             steps {
-                checkout([
-                 $class: 'GitSCM',
-                 branches: [[name: 'master']],
-                 userRemoteConfigs: [[
-                    url: 'git@github.com:varungujarathi9/Jenkins-Hello-World.git',
-                    credentialsId: '',
-                 ]]
-                ])
+                git 'git@github.com:varungujarathi9/Jenkins-Hello-World.git'
             }
         }
         stage("Building docker image"){
