@@ -4,7 +4,7 @@ pipeline {
     environment {
         // name of the image without tag
         dockerRepo = "varungujarathi9/jenkins-hello-world"
-        dockerCredentials = 'docker_hub'
+        dockerCredentials = credentials('docker_hub')
         dockerImage = ""
     }
 
@@ -35,7 +35,7 @@ pipeline {
             steps{
                 script{
                     // if you want to use custom registry, use the first argument, which is blank in this case
-                    docker.withDockerRegistry( 'https://registry.hub.docker.com', dockerCredentials)
+                    docker.withRegistry( '', dockerCredentials)
                     dockerImage.push()
                 }
             }
