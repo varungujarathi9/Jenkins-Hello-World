@@ -83,7 +83,7 @@ Now, Jenkins is installed and configured for system
 
 3. Go to `Advance` tab
 
-4. Search & install `GitHub Integration`, `Pipeline` & `Docker` plugins
+4. Search & install `GitHub Integration`, `Pipeline`, `Docker` & `Docker Pipeline` plugins
 
    a. Click on `Download now and install after restart`
 
