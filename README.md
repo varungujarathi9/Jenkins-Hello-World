@@ -14,7 +14,7 @@ You should know Docker, basic CI-CD concept & basics of what Jenkins is used for
 
 You should have Linux(Debian) OS like Ubuntu, Java (openJDK 11) & Docker CE installed
 
-## Description  
+## Description
 
 This project was created to install Jenkins on local machine (Ubuntu 16.04) and create a basic pipeline with GitHub & Docker
 
@@ -97,7 +97,7 @@ Now, Jenkins is installed and configured for system
 
 8. `Content type` should be JSON
 
-9.  In `Which events would you like to trigger this webhook?` select `Just the push event.`
+9. In `Which events would you like to trigger this webhook?` select `Just the push event.`
 
 Now we are ready to integrate any GitHub repository with Jenkins
 
@@ -127,6 +127,6 @@ Now we are ready to integrate any GitHub repository with Jenkins
 
    f. Enter Docker Hub username & password and set some ID in ID field
 
-7. Now in the `Jenkinsfile` in the `environment` set the ID inside `withCredentials()`
+7. Now in the `Jenkinsfile` in the `environment` set the ID
 
 The pipeline is now created, push code to GitHub to see the pipeline run
