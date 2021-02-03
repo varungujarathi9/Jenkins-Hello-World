@@ -35,7 +35,7 @@ pipeline {
             steps{
                 script{
                     // if you want to use custom registry, use the first argument, which is blank in this case
-                    docker.withRegistry( 'https://registry-1.docker.io', dockerCredentials)
+                    docker.withDockerRegistry( '', dockerCredentials)
                     dockerImage.push()
                 }
             }
