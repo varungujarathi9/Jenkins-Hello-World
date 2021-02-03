@@ -83,7 +83,7 @@ Now, Jenkins is installed and configured for system
 
 3. Go to `Advance` tab
 
-4. Search & install `GitHub Integration` plugin
+4. Search & install `GitHub Integration` and `Pipeline` plugin
 
    a. Click on `Download now and install after restart`
 
@@ -91,17 +91,13 @@ Now, Jenkins is installed and configured for system
 
 5. Now, go to `Configure System` in `Manage Jenkins`
 
-6. Scroll down to `Git plugin`
+6. Now go to your GitHub repository, go to `Settings`, go to `Webhooks`, click on `Add Webhook`
 
-   a. Add your GitHub username & email address
+7. For the payload URL, provide your Jenkins URL and the GitHub webhook path at the end of the URL - `https://<JENKINS_URL>/github-webhook/.`
 
-7. Now go to your GitHub repository, go to `Settings`, go to `Webhooks`, click on `Add Webhook`
+8. `Content type` should be JSON
 
-8. For the payload URL, provide your Jenkins URL and the GitHub webhook path at the end of the URL - `https://<JENKINS_URL>/github-webhook/.`
-
-9. `Content type` should be JSON
-
-10. In `Which events would you like to trigger this webhook?` select `Just the push event.`
+9.  In `Which events would you like to trigger this webhook?` select `Just the push event.`
 
 Now we are ready to integrate any GitHub repository with Jenkins
 
@@ -111,7 +107,7 @@ Now we are ready to integrate any GitHub repository with Jenkins
 
 2. Give name to your pipeline
 
-3. Choose `Freestyle project`
+3. Choose `Pipeline`
 
 4. In the `Source Code Management` tab, select `Git` enter GitHub repository URL (not the URL for cloning) and save
 
@@ -131,7 +127,7 @@ Now we are ready to integrate any GitHub repository with Jenkins
 
    f. Enter Docker Hub username & password and set some ID in ID field
 
-7. Now in the `Jenkinsfile` in the `environment` set the ID inside credentials()
+7. Now in the `Jenkinsfile` in the `environment` set the ID inside `withCredentials()`
 
 The pipeline is now created, push code to GitHub to see the pipeline run
 
