@@ -32,9 +32,13 @@ pipeline {
             }
         }
         stage("Pushing image to registry"){
-            // if you want to use custom registry, use the first argument, which is blank in this case
-            docker.withRegistry( '', dockerCredentials){
-                dockerImage.push()
+            steps{
+                script{
+                    // if you want to use custom registry, use the first argument, which is blank in this case
+                    docker.withRegistry( '', dockerCredentials){
+                        dockerImage.push()
+                    }
+                }
             }
         }
         stage('Cleaning up') {
