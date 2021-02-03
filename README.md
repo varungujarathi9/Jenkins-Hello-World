@@ -130,4 +130,3 @@ Now we are ready to integrate any GitHub repository with Jenkins
 7. Now in the `Jenkinsfile` in the `environment` set the ID inside `withCredentials()`
 
 The pipeline is now created, push code to GitHub to see the pipeline run
-
