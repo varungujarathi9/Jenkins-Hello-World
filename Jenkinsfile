@@ -5,7 +5,7 @@ pipeline {
     environment {
         // name of the image without tag
         dockerRepo = "varungujarathi9/jenkins-hello-world"
-        dockerCredentials = withCredentials("docker_hub")
+        dockerCredentials = "docker_hub"
         dockerImage = ""
     }
 
