@@ -16,7 +16,7 @@ You should have Linux(Debian) OS like Ubuntu, Java (openJDK 11) & Docker CE inst
 
 ## Description  
 
-This project was created to install Jenkins on local machine (Ubuntu 16.04) and create a basic pipeline with GitHub
+This project was created to install Jenkins on local machine (Ubuntu 16.04) and create a basic pipeline with GitHub & Docker
 
 We will be
 
@@ -47,21 +47,21 @@ Now, Jenkins is installed in your system and is ready to run.
 
 We would be using standard `systemctl` commands
 
-1. To start  
+- To start  
    `sudo systemctl start jenkins`
 
-2. To check status  
+- To check status  
    `sudo systemctl status jenkins`
 
-3. To stop  
+- To stop  
    `sudo systemctl stop jenkins`
 
-4. To start on boot  
+- To start on boot  
    `sudo systemctl enable jenkins`
 
 ### First time login  
 
-1. Go to `localhost:8080`
+1. Go to `localhost:8080` OR `<IP_ADDRESS>:8080` 
 
 2. Jenkins login page should appear asking you to enter the administrator password
 
@@ -113,4 +113,7 @@ Now we are ready to integrate any GitHub repository with Jenkins
 
 3. Choose `Freestyle project`
 
-4. In the `Source Code Management` tab enter GitHub repository URL and save
+4. In the `Source Code Management` tab, select `Git` enter GitHub repository URL (not the URL for cloning) and save
+
+The pipeline is now created, push code to GitHub to see the pipeline run
+
