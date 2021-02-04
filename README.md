@@ -89,15 +89,13 @@ Now, Jenkins is installed and configured for system
 
    b. On the next window select the checkbox for `Restart Jenkins when installation is complete and no jobs are running` at the bottom of the page. Jenkins will restart once plugin is downloaded
 
-5. Now, go to `Configure System` in `Manage Jenkins`
+5. Now go to your GitHub repository, go to `Settings`, go to `Webhooks`, click on `Add Webhook`
 
-6. Now go to your GitHub repository, go to `Settings`, go to `Webhooks`, click on `Add Webhook`
+6. For the payload URL, provide your Jenkins URL and the GitHub webhook path at the end of the URL - `https://<JENKINS_URL>/github-webhook/.`
 
-7. For the payload URL, provide your Jenkins URL and the GitHub webhook path at the end of the URL - `https://<JENKINS_URL>/github-webhook/.`
+7. `Content type` should be JSON
 
-8. `Content type` should be JSON
-
-9. In `Which events would you like to trigger this webhook?` select `Just the push event.`
+8. In `Which events would you like to trigger this webhook?` select `Just the push event.`
 
 Now we are ready to integrate any GitHub repository with Jenkins
 
@@ -109,11 +107,15 @@ Now we are ready to integrate any GitHub repository with Jenkins
 
 3. Choose `Pipeline`
 
-4. In the `Source Code Management` tab, select `Git` enter GitHub repository URL (not the URL for cloning) and save
+4. In `Build Triggers` select `GitHub hook trigger for GITScm polling`
 
-5. Now copy [Jenkinsfile](Jenkinsfile)
+5. In `Pipeline section` choose definition as `Pipeline script from SCM`
 
-6. Add Docker credentials to Jenkins host
+6. In the `Source Code Management (SCM)` tab, select `Git` enter GitHub repository URL (not the URL for cloning) and save
+
+7. Now copy [Jenkinsfile](Jenkinsfile) in your repository base path
+
+8. Add Docker credentials to Jenkins host
 
    a. On the top right of home page, click on dropdown next to the username
 
@@ -127,6 +129,6 @@ Now we are ready to integrate any GitHub repository with Jenkins
 
    f. Enter Docker Hub username & password and set some ID in ID field
 
-7. Now in the `Jenkinsfile` in the `environment` set the ID
+9. Now in the `Jenkinsfile` in the `environment` set the ID
 
 The pipeline is now created, push code to GitHub to see the pipeline run
