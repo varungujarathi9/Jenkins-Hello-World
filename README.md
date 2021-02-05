@@ -10,70 +10,91 @@
 
 ## Pre-requisites
 
-You should know Docker, basic CI-CD concept & basics of what Jenkins is used for
+**You should know** `Docker`, `basic CI-CD concept` & `basics of what Jenkins` is used for
 
-You should have Linux(Debian) OS like Ubuntu, Java (openJDK 11) & Docker CE installed
+**You should have** `Linux OS` like Ubuntu, `Java` (OpenJDK 11) & `Docker` installed
 
 ## Description
 
-This project was created to install Jenkins on local machine (Ubuntu 16.04) and create a basic pipeline with GitHub & Docker
+This project was created to install Jenkins on a local machine (Ubuntu 16.04) and create a basic pipeline with GitHub & Docker
 
-We will be
+We will be doing is
 
-- Installing Jenkins and running it, on local machine
-- Creating a docker image
-- Pushing it to docker hub using Jenkins' pipeline
+* Installing Jenkins and running it, on a local machine
+* Creating a docker image
+* Pushing it to docker hub using Jenkins' pipeline
 
 ___
 
 ### Installing Jenkins
 
-1. Add repository key stream  
-   `wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -`  
-   You must get an repose printed as `OK`
+1. **Add repository** keystream  
+```
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+```
+You must get a response printed as `OK`
 
-2. Now add the Debian package to your `sources.list`  
-    `sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'`
+2. Now **add the Debian package** to your `sources.list`  
+```
+sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+```
 
-3. Now, `update` system  
-   `sudo apt update`
+3. Now, **update system** 
+```
+sudo apt update
+```
 
-4. Finally, install Jenkins  
-   `sudo apt install jenkins`
+4. Finally, **install Jenkins**
+```
+sudo apt install jenkins
+```
 
-Now, Jenkins is installed in your system and is ready to run.
+Now, **Jenkins is installed** in your system and is ready to run.
 
-### Start, stop, status
+### Start, stop, status of Jenkins service
 
 We would be using standard `systemctl` commands
 
 - To start  
-   `sudo systemctl start jenkins`
+```
+sudo systemctl start jenkins
+```
 
 - To check status  
-   `sudo systemctl status jenkins`
+```
+sudo systemctl status jenkins
+```
 
 - To stop  
-   `sudo systemctl stop jenkins`
+```
+sudo systemctl stop jenkins
+```
 
 - To start on boot  
-   `sudo systemctl enable jenkins`
+```
+sudo systemctl enable jenkins
+```
 
 ### First time login  
 
-1. Go to `localhost:8080` OR `<IP_ADDRESS>:8080` 
+1. Go to `<IP_ADDRESS>:8080` 
 
 2. Jenkins login page should appear asking you to enter the administrator password
 
-3. Now open a terminal and type `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`  
-The string printed on console is the administrator password, enter this is on Jenkins login page  
+3. Now open a terminal and type 
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+A string printed on the console is the administrator password, enter this is on Jenkins login page  
 
 4. Choose `Install selected plugins` (You may choose `Select plugins to install`)  
 Now it will install plugins and show you the details, it takes some time
 
 5. It would ask you to create a new 'Admin User'.
 
-Now, Jenkins is installed and configured for system
+Now, **Jenkins is configured** for the system
+
 
 ### Integrating GitHub with Jenkins
 
