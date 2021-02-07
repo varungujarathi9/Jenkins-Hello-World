@@ -132,7 +132,7 @@ Now we are ready to integrate any GitHub repository with Jenkins
 
 5. In `Pipeline section` choose definition as `Pipeline script from SCM`
 
-6. In the `Source Code Management (SCM)` tab, select `Git` enter GitHub repository URL (not the URL for cloning) and save
+6. In the `Source Code Management (SCM)` tab, select `Git` enter GitHub repository URL, and save
 
 7. Now copy [Jenkinsfile](Jenkinsfile) in your repository base path
 
